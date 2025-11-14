@@ -4,8 +4,8 @@
  */
 
 import { Markup } from 'telegraf';
-import logger from '../../../../utils/logger.js';
-import { getUserLanguage, t } from '../../../../utils/i18n.js';
+import logger from '../../../utils/logger.js';
+import { getUserLanguage, t } from '../../../utils/i18n.js';
 import { parseCallback, isValidCallback } from './utils/callbacks.js';
 import { handleAdminError, AdminError } from './utils/errorHandler.js';
 import { logAdminAction } from './utils/audit.js';

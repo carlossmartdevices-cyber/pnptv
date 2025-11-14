@@ -80,9 +80,9 @@ export function initializeBot() {
 }
 
 /**
- * Start the bot
+ * Start the bot in webhook mode
  */
-export async function startBot() {
+export async function startBot(webhookDomain) {
   try {
     initializeBot();
 
@@ -90,9 +90,17 @@ export async function startBot() {
     process.once('SIGINT', () => bot.stop('SIGINT'));
     process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
-    // Start bot
-    await bot.launch();
-    logger.info(`Bot @${bot.botInfo.username} started successfully`);
+    // Check if webhook mode is enabled
+    const useWebhook = process.env.USE_WEBHOOK === 'true' && webhookDomain;
+
+    if (useWebhook) {
+      // Webhook mode - bot will be started by Express server
+      logger.info('Bot initialized in webhook mode (will be started by Express server)');
+    } else {
+      // Polling mode (default)
+      await bot.launch();
+      logger.info(`Bot @${bot.botInfo.username} started successfully in polling mode`);
+    }
 
     return bot;
   } catch (error) {

@@ -4,8 +4,8 @@
  */
 
 import { Markup } from 'telegraf';
-import logger from '../../../../utils/logger.js';
-import { getUserLanguage } from '../../../../utils/i18n.js';
+import logger from '../../../utils/logger.js';
+import { getUserLanguage } from '../../../utils/i18n.js';
 import { db } from '../../../config/firebase.js';
 
 /**

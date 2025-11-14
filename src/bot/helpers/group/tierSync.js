@@ -6,7 +6,7 @@
  */
 
 import { getDb, collections } from '../../../config/firebase.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 import { MEMBERSHIP_TIERS } from '../../../services/membershipService.js';
 
 /**

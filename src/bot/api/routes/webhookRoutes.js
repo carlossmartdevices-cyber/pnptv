@@ -5,6 +5,8 @@
 import express from 'express';
 import { handleEpaycoWebhook } from '../controllers/epaycoController.js';
 import { handleDaimoWebhook } from '../controllers/daimoController.js';
+import { bot } from '../../core/bot.js';
+import logger from '../../../utils/logger.js';
 
 const router = express.Router();
 
@@ -63,9 +65,25 @@ router.post('/daimo', handleDaimoWebhook);
  *       200:
  *         description: Webhook processed successfully
  */
-router.post('/telegram', (req, res) => {
-  // TODO: Integrate with Telegram bot logic
-  res.status(200).json({ status: 'ok', message: 'Telegram webhook received.' });
+router.post('/telegram', async (req, res) => {
+  try {
+    // Verify the request is from Telegram (optional but recommended)
+    const secretToken = process.env.TELEGRAM_WEBHOOK_SECRET;
+    if (secretToken && req.headers['x-telegram-bot-api-secret-token'] !== secretToken) {
+      logger.warn('Invalid webhook secret token');
+      return res.status(403).json({ error: 'Forbidden' });
+    }
+
+    // Process the update with Telegraf
+    await bot.handleUpdate(req.body);
+
+    // Respond quickly to Telegram
+    res.status(200).json({ ok: true });
+  } catch (error) {
+    logger.error('Error processing Telegram webhook:', error);
+    // Still respond with 200 to prevent Telegram from retrying
+    res.status(200).json({ ok: false });
+  }
 });
 
 export default router;

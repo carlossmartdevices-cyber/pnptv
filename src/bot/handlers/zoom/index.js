@@ -5,7 +5,7 @@
 
 import instantRoomHandlers from './instantRoom.js';
 import scheduleHandlers from './schedule.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register all Zoom handlers

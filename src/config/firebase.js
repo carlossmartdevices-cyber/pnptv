@@ -5,7 +5,7 @@
 import admin from 'firebase-admin';
 import logger from '../utils/logger.js';
 
-let db = null;
+export let db = null;
 
 /**
  * Initialize Firebase Admin SDK

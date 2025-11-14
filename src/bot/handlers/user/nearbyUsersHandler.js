@@ -3,13 +3,13 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { getUserById } from '../../../services/userService.js';
 import { requireLocation } from '../../core/middleware/authMiddleware.js';
 import { collections } from '../../../config/firebase.js';
 import { cache, cacheKeys } from '../../../config/redis.js';
 import { getDistance } from 'geolib';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register nearby users handlers

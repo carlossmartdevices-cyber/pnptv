@@ -3,10 +3,10 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { requireSubscription } from '../../core/middleware/authMiddleware.js';
 import axios from 'axios';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register zoom room handlers

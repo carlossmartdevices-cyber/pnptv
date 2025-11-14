@@ -3,10 +3,10 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { PLANS } from '../../../services/subscriptionService.js';
 import { createPayment } from '../../../models/paymentModel.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 import axios from 'axios';
 
 /**

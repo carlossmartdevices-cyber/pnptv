@@ -7,7 +7,7 @@ import { Markup } from 'telegraf';
 import logger from '../../../../utils/logger.js';
 import { getUserLanguage } from '../../../../utils/i18n.js';
 import { db } from '../../../../config/firebase.js';
-import { checkAndExpireMemberships } from '../../../../services/membershipService.js';
+import { batchExpireMemberships } from '../../../../services/membershipService.js';
 import cache from '../../../../config/redis.js';
 
 /**
@@ -115,16 +115,16 @@ async function runExpirationCheck(ctx, lang) {
 
     await ctx.answerCbQuery(progressMsg);
 
-    const result = await checkAndExpireMemberships();
+    const result = await batchExpireMemberships();
 
     const message = lang === 'es'
       ? `✅ *Verificación Completada*\n\n` +
-        `• Revisadas: ${result.checked}\n` +
-        `• Expiradas: ${result.expired}\n` +
+        `• Total: ${result.total}\n` +
+        `• Procesadas: ${result.processed}\n` +
         `• Errores: ${result.errors}`
       : `✅ *Check Completed*\n\n` +
-        `• Checked: ${result.checked}\n` +
-        `• Expired: ${result.expired}\n` +
+        `• Total: ${result.total}\n` +
+        `• Processed: ${result.processed}\n` +
         `• Errors: ${result.errors}`;
 
     const keyboard = Markup.inlineKeyboard([

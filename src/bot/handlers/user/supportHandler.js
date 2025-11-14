@@ -3,9 +3,9 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { OpenAI } from 'openai';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 // Initialize OpenAI (if enabled)
 let openai = null;

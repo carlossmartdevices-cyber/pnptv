@@ -3,8 +3,8 @@
  */
 
 import { getUserById } from '../../../services/userService.js';
-import logger from '../../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import logger from '../../../utils/logger.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 
 /**
  * Check if user exists and has completed onboarding

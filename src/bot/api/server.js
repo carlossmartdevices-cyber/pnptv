@@ -119,17 +119,49 @@ app.use((err, req, res, next) => {
 /**
  * Start server
  */
-export async function startWebServer() {
+export async function startWebServer(bot) {
   const port = process.env.PORT || 3000;
 
   return new Promise((resolve, reject) => {
-    const server = app.listen(port, (err) => {
+    const server = app.listen(port, async (err) => {
       if (err) {
         return reject(err);
       }
 
       logger.info(`Web server listening on port ${port}`);
       logger.info(`API docs available at http://localhost:${port}/api-docs`);
+
+      // Set webhook if USE_WEBHOOK is enabled
+      if (process.env.USE_WEBHOOK === 'true' && bot) {
+        try {
+          // First, get bot info to ensure token is valid
+          const botInfo = await bot.telegram.getMe();
+          logger.info(`Setting webhook for bot: @${botInfo.username}`);
+
+          const webhookUrl = `${process.env.BOT_URL}/api/webhooks/telegram`;
+          const webhookOptions = {};
+
+          // Add secret token if provided
+          if (process.env.TELEGRAM_WEBHOOK_SECRET) {
+            webhookOptions.secret_token = process.env.TELEGRAM_WEBHOOK_SECRET;
+          }
+
+          // Delete any existing webhook first
+          await bot.telegram.deleteWebhook({ drop_pending_updates: false });
+
+          // Set the new webhook
+          await bot.telegram.setWebhook(webhookUrl, webhookOptions);
+
+          // Verify webhook was set
+          const webhookInfo = await bot.telegram.getWebhookInfo();
+          logger.info(`✅ Webhook set successfully to: ${webhookInfo.url}`);
+          logger.info(`Pending updates: ${webhookInfo.pending_update_count}`);
+        } catch (webhookError) {
+          logger.error('Failed to set webhook:', webhookError);
+          logger.warn('Bot will not receive updates until webhook is properly configured');
+        }
+      }
+
       resolve(server);
     });
   });

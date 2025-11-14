@@ -6,7 +6,7 @@
 import { registerAdminRoutes } from './router.js';
 import { adminGuard, adminRateLimit, validateCallbackQuery } from './middleware/adminGuard.js';
 import { sessionCleanupMiddleware } from './utils/session.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register all admin handlers with the bot

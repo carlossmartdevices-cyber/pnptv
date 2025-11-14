@@ -3,10 +3,10 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { getUserById, updateProfile } from '../../../services/userService.js';
 import { sanitizeBio } from '../../../utils/validation.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register profile handlers

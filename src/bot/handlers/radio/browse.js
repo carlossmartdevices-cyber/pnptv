@@ -4,11 +4,11 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage } from '../../../../utils/i18n.js';
+import { t, getUserLanguage } from '../../../utils/i18n.js';
 import { getUserById } from '../../../services/userService.js';
 import radioService from '../../../services/radio/radioService.js';
 import playlistService from '../../../services/radio/playlistService.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Show PNPtv! Radio main menu

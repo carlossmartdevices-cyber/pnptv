@@ -39,13 +39,19 @@ async function main() {
     await initializeRedis();
     logger.info('✅ Redis initialized');
 
-    // Start web server for webhooks and API
-    await startWebServer();
-    logger.info('✅ Web server started');
+    // Determine mode
+    const useWebhook = process.env.USE_WEBHOOK === 'true';
+    const webhookDomain = process.env.BOT_URL;
 
-    // Start Telegram bot
-    await startBot();
-    logger.info('✅ Telegram bot started');
+    logger.info(`Mode: ${useWebhook ? 'Webhook' : 'Polling'}`);
+
+    // Start Telegram bot (but don't launch if webhook mode)
+    await startBot(webhookDomain);
+    logger.info('✅ Telegram bot initialized');
+
+    // Start web server for webhooks and API
+    await startWebServer(bot);
+    logger.info('✅ Web server started');
 
     // Start cron jobs for subscription management
     startCronJobs();

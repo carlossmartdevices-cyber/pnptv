@@ -7,7 +7,7 @@ import { Markup } from 'telegraf';
 import logger from '../../../../utils/logger.js';
 import { getUserLanguage } from '../../../../utils/i18n.js';
 import { db } from '../../../../config/firebase.js';
-import { getMembershipStatistics } from '../../../../services/membershipService.js';
+import { getPlanStatistics } from '../../../../services/membershipService.js';
 import cache from '../../../../config/redis.js';
 
 /**
@@ -79,13 +79,13 @@ async function getDashboardStats() {
     const [
       totalUsers,
       activeUsers24h,
-      membershipStats,
+      planStats,
       recentPayments,
       systemHealth,
     ] = await Promise.all([
       getTotalUsers(),
       getActiveUsers24h(),
-      getMembershipStatistics(),
+      getPlanStatistics(),
       getRecentPaymentsCount(),
       getSystemHealth(),
     ]);
@@ -93,7 +93,7 @@ async function getDashboardStats() {
     const stats = {
       totalUsers,
       activeUsers24h,
-      membershipStats,
+      membershipStats: planStats.byTier || {},
       recentPayments,
       systemHealth,
       lastUpdated: new Date().toISOString(),

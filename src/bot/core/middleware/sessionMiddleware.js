@@ -3,7 +3,7 @@
  */
 
 import { cache, cacheKeys } from '../../../config/redis.js';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Session middleware to load/save user sessions from Redis
