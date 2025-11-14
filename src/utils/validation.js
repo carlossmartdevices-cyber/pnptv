@@ -19,18 +19,17 @@ export function isValidEmail(email) {
 export function sanitizeText(text, maxLength = 1000) {
   if (!text || typeof text !== 'string') return '';
 
-  // Remove HTML tags
-  let sanitized = text.replace(/<[^>]*>/g, '');
-
+  // Remove <script> tags and their content
+  let sanitized = text.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+  // Remove all HTML tags
+  sanitized = sanitized.replace(/<[^>]*>/g, '');
   // Remove potential XSS attempts
   sanitized = sanitized
     .replace(/javascript:/gi, '')
-    .replace(/on\w+\s*=/gi, '')
+    .replace(/on\w+\s*= /gi, '')
     .replace(/<script/gi, '');
-
   // Trim and limit length
   sanitized = sanitized.trim().substring(0, maxLength);
-
   return sanitized;
 }
 
@@ -148,8 +147,10 @@ export function isValidPaymentAmount(amount, planId) {
     premium: parseFloat(process.env.PLAN_PREMIUM_PRICE_USD) || 19.99,
     gold: parseFloat(process.env.PLAN_GOLD_PRICE_USD) || 29.99,
   };
-
   const expectedAmount = planPrices[planId];
+  if (typeof expectedAmount !== 'number' || isNaN(expectedAmount)) {
+    return false;
+  }
   return Math.abs(amount - expectedAmount) < 0.01; // Allow for small floating point differences
 }
 
