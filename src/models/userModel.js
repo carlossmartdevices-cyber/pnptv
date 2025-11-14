@@ -13,23 +13,47 @@ export async function createUser(userData) {
   try {
     const userRef = collections.users().doc(userData.userId.toString());
 
+    const now = new Date();
+    const ageVerificationExpiresAt = new Date(now.getTime() + 168 * 60 * 60 * 1000); // 7 days
+
     const user = {
       userId: userData.userId,
       username: userData.username || null,
       firstName: userData.firstName || null,
       lastName: userData.lastName || null,
       language: userData.language || 'en',
-      age18Plus: false,
-      termsAccepted: false,
       email: null,
+      emailVerified: false,
+
+      // Onboarding tracking
+      onboardingComplete: false,
+      createdAt: now,
+      lastActive: now,
+
+      // Age verification (7-day interval)
+      ageVerified: false,
+      ageVerifiedAt: null,
+      ageVerificationExpiresAt: null,
+      ageVerificationIntervalHours: 168, // 7 days
+
+      // Legal compliance
+      termsAccepted: false,
+      privacyAccepted: false,
+
+      // Membership
+      tier: 'Free',
+      membershipExpiresAt: null,
+
+      // Profile (optional fields)
       bio: null,
-      photoUrl: null,
       location: null,
+      photoUrl: null,
       interests: [],
+
+      // Legacy fields (deprecated but kept for backwards compatibility)
       subscriptionStatus: 'free',
       planId: null,
       planExpiry: null,
-      onboardingCompleted: false,
       isActive: true,
       isAdmin: false,
       privacySettings: {
@@ -37,8 +61,7 @@ export async function createUser(userData) {
         showOnline: true,
         allowMessages: true,
       },
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      updatedAt: now,
     };
 
     await userRef.set(user);

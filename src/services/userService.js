@@ -36,12 +36,28 @@ export async function getOrCreateUser(telegramUser) {
  */
 export async function completeOnboarding(userId, onboardingData) {
   try {
+    const now = new Date();
+    const ageVerificationExpiresAt = new Date(now.getTime() + 168 * 60 * 60 * 1000); // 7 days
+
     const updates = {
       language: onboardingData.language,
-      age18Plus: onboardingData.age18Plus,
-      termsAccepted: onboardingData.termsAccepted,
       email: onboardingData.email && isValidEmail(onboardingData.email) ? onboardingData.email : null,
+      emailVerified: false,
+
+      // Age verification
+      ageVerified: onboardingData.ageVerified || onboardingData.age18Plus || false,
+      ageVerifiedAt: onboardingData.ageVerified ? now : null,
+      ageVerificationExpiresAt: onboardingData.ageVerified ? ageVerificationExpiresAt : null,
+
+      // Legal compliance
+      termsAccepted: onboardingData.termsAccepted || false,
+      privacyAccepted: onboardingData.privacyAccepted || false,
+
+      // Mark onboarding complete (both fields for backwards compatibility)
+      onboardingComplete: true,
       onboardingCompleted: true,
+
+      lastActive: now,
     };
 
     await userModel.updateUser(userId, updates);
