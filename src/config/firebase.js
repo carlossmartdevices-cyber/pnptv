@@ -63,6 +63,9 @@ export const collections = {
   membershipHistory: () => getDb().collection('membership_history'),
   planActivations: () => getDb().collection('plan_activations'),
   inviteLinks: () => getDb().collection('invite_links'),
+  userGroups: () => getDb().collection('user_groups'),
+  groupEngagement: () => getDb().collection('group_engagement'),
+  groupSettings: () => getDb().collection('group_settings'),
 
   // PNPtv! Radio Collections
   music: () => getDb().collection('music'),
