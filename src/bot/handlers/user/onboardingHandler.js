@@ -13,11 +13,11 @@
 
 import { Markup } from 'telegraf';
 import * as userModel from '../../../models/userModel.js';
-import { t, getUserLanguage, setUserLanguage } from '../../../utils/i18n.js';
+import { t, getUserLanguage, setUserLanguage } from '../../../../utils/i18n.js';
 import { isValidEmail } from '../../../utils/validation.js';
 import { activateMembership } from '../../../utils/membershipManager.js';
 import { showMainMenu } from './mainMenuHandler.js';
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Register onboarding handlers

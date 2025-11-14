@@ -7,8 +7,8 @@
 
 import { Markup } from 'telegraf';
 import { collections } from '../../../config/firebase.js';
-import logger from '../../../utils/logger.js';
-import { getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { getUserLanguage } from '../../../../utils/i18n.js';
 import { getTierBadge, getTierName } from '../../helpers/group/tierSync.js';
 
 /**

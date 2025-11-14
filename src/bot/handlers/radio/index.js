@@ -7,7 +7,7 @@ import browseHandlers from './browse.js';
 import trendingHandlers from './trending.js';
 import playlistHandlers from './playlists.js';
 import featuresHandlers from './features.js';
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Register all radio handlers

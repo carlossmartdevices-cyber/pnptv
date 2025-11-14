@@ -1,11 +1,4 @@
 /**
- * Telegram Webhook Handler
- */
-router.post('/telegram', (req, res) => {
-	// TODO: Integrate with Telegram bot logic
-	res.status(200).json({ status: 'ok', message: 'Telegram webhook received.' });
-});
-/**
  * Webhook Routes
  */
 
@@ -52,5 +45,27 @@ router.post('/epayco', handleEpaycoWebhook);
  *         description: Webhook processed successfully
  */
 router.post('/daimo', handleDaimoWebhook);
+
+/**
+ * @swagger
+ * /api/webhooks/telegram:
+ *   post:
+ *     summary: Telegram webhook
+ *     description: Receives updates from Telegram Bot API
+ *     tags: [Webhooks]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *     responses:
+ *       200:
+ *         description: Webhook processed successfully
+ */
+router.post('/telegram', (req, res) => {
+  // TODO: Integrate with Telegram bot logic
+  res.status(200).json({ status: 'ok', message: 'Telegram webhook received.' });
+});
 
 export default router;

@@ -3,8 +3,8 @@
  */
 
 import * as Sentry from '@sentry/node';
-import logger from '../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { t, getUserLanguage } from '../../../../utils/i18n.js';
 
 /**
  * Global error handler for the bot

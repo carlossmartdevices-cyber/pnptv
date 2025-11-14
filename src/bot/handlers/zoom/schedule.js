@@ -4,11 +4,11 @@
  */
 
 import { Markup } from 'telegraf';
-import { getUserLanguage, t } from '../../../utils/i18n.js';
+import { getUserLanguage, t } from '../../../../utils/i18n.js';
 import { getUserById } from '../../../services/userService.js';
 import zoomService from '../../../services/zoomService.js';
 import eventService from '../../../services/events/eventService.js';
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Start scheduling wizard

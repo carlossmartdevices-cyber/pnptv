@@ -3,9 +3,9 @@
  */
 
 import { Markup } from 'telegraf';
-import { t, getUserLanguage, setUserLanguage } from '../../../utils/i18n.js';
+import { t, getUserLanguage, setUserLanguage } from '../../../../utils/i18n.js';
 import { updateUser } from '../../../models/userModel.js';
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Register settings handlers

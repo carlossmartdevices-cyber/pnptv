@@ -2,7 +2,7 @@
  * Logging Middleware
  */
 
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Log all incoming updates

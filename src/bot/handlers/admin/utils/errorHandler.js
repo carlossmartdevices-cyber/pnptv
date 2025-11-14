@@ -2,9 +2,9 @@
  * Standardized Error Handling for Admin Panel
  */
 
-import logger from '../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../utils/i18n.js';
- */
+import logger from '../../../../utils/logger.js';
+import { getUserLanguage } from '../../../../utils/i18n.js';
+import { safeEditMessage } from '../../../helpers/messageHelper.js';
 const ERROR_CODES = {
   UNAUTHORIZED: {
     code: 'UNAUTHORIZED',
@@ -134,7 +134,7 @@ export async function handleAdminError(ctx, error, options = {}) {
 
     try {
       if (ctx.callbackQuery) {
-        await ctx.editMessageText(message, { parse_mode: 'Markdown' });
+        await safeEditMessage(ctx, message, { parse_mode: 'Markdown' });
       } else {
         await ctx.reply(message, { parse_mode: 'Markdown' });
       }

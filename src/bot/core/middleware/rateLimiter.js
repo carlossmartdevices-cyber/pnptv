@@ -3,8 +3,8 @@
  */
 
 import { cache, cacheKeys } from '../../../config/redis.js';
-import logger from '../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { t, getUserLanguage } from '../../../../utils/i18n.js';
 
 const RATE_LIMIT_WINDOW = 60; // 60 seconds
 const RATE_LIMIT_MAX = 20; // 20 requests per minute

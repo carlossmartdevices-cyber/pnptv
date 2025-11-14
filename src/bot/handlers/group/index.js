@@ -6,8 +6,8 @@
  */
 
 import { Markup } from 'telegraf';
-import logger from '../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { t, getUserLanguage } from '../../../../utils/i18n.js';
 import { getUserTier, syncGroupPermissions, getTierBadge, getTierName, trackUserInGroup } from '../../helpers/group/tierSync.js';
 import { trackEngagement } from './leaderboard.js';
 import { MEMBERSHIP_TIERS } from '../../../services/membershipService.js';

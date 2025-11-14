@@ -2,7 +2,7 @@
  * Admin Session Management Utilities
  */
 
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 /**
  * Session timeout in milliseconds (15 minutes)
  */

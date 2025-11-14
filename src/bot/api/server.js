@@ -1,12 +1,3 @@
-// Legacy /webhook/telegram route for Telegram compatibility
-app.post('/webhook/telegram', (req, res) => {
-  // TODO: Integrate with Telegram bot logic
-  res.status(200).json({ status: 'ok', message: 'Legacy Telegram webhook received.' });
-});
-// Placeholder /app route to prevent 404 errors
-app.get('/app', (req, res) => {
-  res.status(200).send('PNPtv App Endpoint');
-});
 /**
  * Express API Server for Webhooks and API Endpoints
  */
@@ -81,6 +72,17 @@ app.use('/api/', limiter);
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api', apiRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+/**
+ * Root endpoint
+ */
+app.get('/', (req, res) => {
+  res.json({
+    name: 'PNPtv Bot API',
+    version: '1.0.0',
+    status: 'running',
+  });
+});
 
 /**
  * Health check

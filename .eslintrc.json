@@ -12,6 +12,17 @@
     "no-console": "warn",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "prefer-const": "error",
-    "no-var": "error"
+    "no-var": "error",
+    "no-irregular-whitespace": "error",
+    "no-unexpected-multiline": "error",
+    "valid-jsdoc": "warn",
+    "no-unreachable": "error",
+    "no-empty": "warn",
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "always"],
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-return-await": "error",
+    "require-await": "warn"
   }
 }

@@ -10,8 +10,8 @@
  */
 
 import { Markup } from 'telegraf';
-import { t } from '../../../utils/i18n.js';
-import logger from '../../../utils/logger.js';
+import { t } from '../../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
 import {
   activateMembership,
   deactivateMembership,

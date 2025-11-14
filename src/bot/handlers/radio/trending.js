@@ -4,9 +4,9 @@
  */
 
 import { Markup } from 'telegraf';
-import { getUserLanguage } from '../../../utils/i18n.js';
+import { getUserLanguage } from '../../../../utils/i18n.js';
 import radioService from '../../../services/radio/radioService.js';
-import logger from '../../../utils/logger.js';
+import logger from '../../../../utils/logger.js';
 
 /**
  * Show trending tracks
