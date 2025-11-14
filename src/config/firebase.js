@@ -60,6 +60,9 @@ export const collections = {
   broadcasts: () => getDb().collection('broadcasts'),
   supportTickets: () => getDb().collection('supportTickets'),
   radioRequests: () => getDb().collection('radioRequests'),
+  membershipHistory: () => getDb().collection('membership_history'),
+  planActivations: () => getDb().collection('plan_activations'),
+  inviteLinks: () => getDb().collection('invite_links'),
 };
 
 /**

@@ -1,0 +1,141 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      // Anyone authenticated can read user profiles
+      allow read: if isAuthenticated();
+
+      // Users can only write their own data
+      allow write: if isOwner(userId);
+
+      // Admins can write any user data
+      allow update: if isAdmin();
+    }
+
+    // Membership history (read-only for users, write for system only)
+    match /membership_history/{historyId} {
+      // Users can read their own history
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Admins can read all history
+      allow read: if isAdmin();
+
+      // Only system (via backend) can write
+      allow write: if false;
+    }
+
+    // Plan activations (read-only for users)
+    match /plan_activations/{activationId} {
+      // Users can read their own activations
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Admins can read all activations
+      allow read: if isAdmin();
+
+      // Only system can write
+      allow write: if false;
+    }
+
+    // Invite links
+    match /invite_links/{code} {
+      // Anyone can read to validate invite codes
+      allow read: if isAuthenticated();
+
+      // Only system can create/update/delete invite links
+      allow write: if false;
+    }
+
+    // Plans (read-only for all users)
+    match /plans/{planId} {
+      // Anyone can read plans
+      allow read: if true;
+
+      // Only admin via backend can modify plans
+      allow write: if false;
+    }
+
+    // Payments
+    match /payments/{paymentId} {
+      // Users can read their own payments
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Admins can read all payments
+      allow read: if isAdmin();
+
+      // Only system can write payments
+      allow write: if false;
+    }
+
+    // Live streams
+    match /liveStreams/{streamId} {
+      // Anyone authenticated can read live streams
+      allow read: if isAuthenticated();
+
+      // Users can create/update their own streams
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Users can delete their own streams
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Zoom rooms
+    match /zoomRooms/{roomId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Broadcasts (admin only)
+    match /broadcasts/{broadcastId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Support tickets
+    match /supportTickets/{ticketId} {
+      // Users can read their own tickets
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Admins can read all tickets
+      allow read: if isAdmin();
+
+      // Users can create tickets
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+
+      // Users can update their own tickets
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // Admins can update any ticket
+      allow update: if isAdmin();
+    }
+
+    // Radio requests
+    match /radioRequests/{requestId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
