@@ -45,8 +45,8 @@ const translations = {
 
     // Main Menu
     mainMenuIntro: '🎬 *PNPtv - Your Entertainment Hub*\\n\\nWhat would you like to do?',
-    subscribe: '💎 Subscribe to PRIME',
-    myProfile: '👤 My Profile',
+    becomeMember: '💎 Become a member',
+    myProfile: '👤 Mi Profile',
     nearbyUsers: '🌍 Nearby Users',
     liveStreams: '🎤 Live Streams',
     radio: '📻 Radio',
@@ -263,7 +263,7 @@ const translations = {
 
     // Main Menu
     mainMenuIntro: '🎬 *PNPtv - Tu Centro de Entretenimiento*\\n\\n¿Qué te gustaría hacer?',
-    subscribe: '💎 Suscribirse a PRIME',
+    becomeMember: '💎 Hacerse miembro',
     myProfile: '👤 Mi Perfil',
     nearbyUsers: '🌍 Usuarios Cercanos',
     liveStreams: '🎤 Transmisiones en Vivo',

@@ -40,22 +40,10 @@ export async function showMainMenu(ctx, edit = false) {
     }
 
     const keyboard = Markup.inlineKeyboard([
-      [
-        Markup.button.callback(t('subscribe', lang), 'show_subscription_plans'),
-        Markup.button.callback(t('myProfile', lang), 'show_profile'),
-      ],
-      [
-        Markup.button.callback(t('nearbyUsers', lang), 'show_nearby'),
-        Markup.button.callback(t('liveStreams', lang), 'show_live'),
-      ],
-      [
-        Markup.button.callback(t('radio', lang), 'show_radio'),
-        Markup.button.callback(t('zoomRooms', lang), 'show_zoom'),
-      ],
-      [
-        Markup.button.callback(t('support', lang), 'show_support'),
-        Markup.button.callback(t('settings', lang), 'show_settings'),
-      ],
+      [Markup.button.callback(t('myProfile', lang), 'show_profile')],
+      [Markup.button.callback(t('becomeMember', lang), 'show_subscription_plans')],
+      [Markup.button.callback(t('support', lang), 'show_support')],
+      [Markup.button.callback(t('settings', lang), 'show_settings')],
     ]);
 
     if (edit && ctx.callbackQuery) {

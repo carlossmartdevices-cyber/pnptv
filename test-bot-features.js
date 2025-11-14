@@ -231,25 +231,10 @@ async function finishOnboarding(ctx, email) {
     {
       parse_mode: 'Markdown',
       ...Markup.inlineKeyboard([
-        [
-          Markup.button.callback('💎 Subscribe', 'show_subscription_plans'),
-          Markup.button.callback('👤 Profile', 'show_profile'),
-        ],
-        [
-          Markup.button.callback('🌍 Nearby', 'show_nearby'),
-          Markup.button.callback('🎤 Live', 'show_live'),
-        ],
-        [
-          Markup.button.callback('📻 Radio', 'show_radio'),
-          Markup.button.callback('🎥 Zoom', 'show_zoom'),
-        ],
-        [
-          Markup.button.callback('🤖 Support', 'show_support'),
-          Markup.button.callback('⚙️ Settings', 'show_settings'),
-        ],
-        [
-          Markup.button.callback('🔧 Admin', 'show_admin'),
-        ],
+        [Markup.button.callback('👤 Mi Profile', 'show_profile')],
+        [Markup.button.callback('💎 Become a member', 'show_subscription_plans')],
+        [Markup.button.callback('🤖 Support', 'show_support')],
+        [Markup.button.callback('⚙️ Settings', 'show_settings')],
       ]),
     }
   );
@@ -266,25 +251,10 @@ bot.command('menu', async (ctx) => {
   await ctx.reply(
     t('mainMenuIntro', lang),
     Markup.inlineKeyboard([
-      [
-        Markup.button.callback('💎 Subscribe', 'show_subscription_plans'),
-        Markup.button.callback('👤 Profile', 'show_profile'),
-      ],
-      [
-        Markup.button.callback('🌍 Nearby', 'show_nearby'),
-        Markup.button.callback('🎤 Live', 'show_live'),
-      ],
-      [
-        Markup.button.callback('📻 Radio', 'show_radio'),
-        Markup.button.callback('🎥 Zoom', 'show_zoom'),
-      ],
-      [
-        Markup.button.callback('🤖 Support', 'show_support'),
-        Markup.button.callback('⚙️ Settings', 'show_settings'),
-      ],
-      [
-        Markup.button.callback('🔧 Admin', 'show_admin'),
-      ],
+      [Markup.button.callback('👤 Mi Profile', 'show_profile')],
+      [Markup.button.callback('💎 Become a member', 'show_subscription_plans')],
+      [Markup.button.callback('🤖 Support', 'show_support')],
+      [Markup.button.callback('⚙️ Settings', 'show_settings')],
     ])
   );
 });
@@ -294,22 +264,10 @@ bot.action('main_menu', async (ctx) => {
   await ctx.editMessageText(
     t('mainMenuIntro', lang),
     Markup.inlineKeyboard([
-      [
-        Markup.button.callback('💎 Subscribe', 'show_subscription_plans'),
-        Markup.button.callback('👤 Profile', 'show_profile'),
-      ],
-      [
-        Markup.button.callback('🌍 Nearby', 'show_nearby'),
-        Markup.button.callback('🎤 Live', 'show_live'),
-      ],
-      [
-        Markup.button.callback('📻 Radio', 'show_radio'),
-        Markup.button.callback('🎥 Zoom', 'show_zoom'),
-      ],
-      [
-        Markup.button.callback('🤖 Support', 'show_support'),
-        Markup.button.callback('⚙️ Settings', 'show_settings'),
-      ],
+      [Markup.button.callback('👤 Mi Profile', 'show_profile')],
+      [Markup.button.callback('💎 Become a member', 'show_subscription_plans')],
+      [Markup.button.callback('🤖 Support', 'show_support')],
+      [Markup.button.callback('⚙️ Settings', 'show_settings')],
     ])
   );
 });
