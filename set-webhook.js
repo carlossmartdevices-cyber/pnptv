@@ -1,7 +1,7 @@
 // set-webhook.js
 import https from 'https';
 
-const BOT_TOKEN = '8499797477:AAHZ0EpnK9zmxY_ZN7yAPsrW_11qoAjsrRY';
+const BOT_TOKEN = '8499797477:AAEdSv6SVNbWvPkThu4HId8SihPrsrySqG8';
 const WEBHOOK_URL = 'https://pnptv.app/api/bot/webhook'; // Change if your endpoint differs
 
 const apiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${encodeURIComponent(WEBHOOK_URL)}`;
