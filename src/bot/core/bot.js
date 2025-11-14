@@ -23,6 +23,12 @@ import { registerAdminHandlers } from '../handlers/admin/adminHandler.js';
 import { registerSupportHandlers } from '../handlers/user/supportHandler.js';
 import { registerSettingsHandlers } from '../handlers/user/settingsHandler.js';
 
+// Import group handlers
+import { registerGroupMenuHandlers } from '../handlers/group/index.js';
+import { handleNewGroupMembers } from '../handlers/group/welcome.js';
+import { setupTierChangeListener } from '../helpers/group/tierSync.js';
+import { mediaFilterMiddleware, engagementTrackerMiddleware } from '../middleware/group/mediaFilter.js';
+
 // Create bot instance
 export const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
@@ -37,6 +43,10 @@ export function initializeBot() {
   bot.use(errorHandler);
   bot.use(rateLimiter);
 
+  // Register group middleware
+  bot.use(mediaFilterMiddleware);
+  bot.use(engagementTrackerMiddleware);
+
   // Register all handlers
   registerOnboardingHandlers(bot);
   registerMainMenuHandlers(bot);
@@ -50,7 +60,20 @@ export function initializeBot() {
   registerSupportHandlers(bot);
   registerSettingsHandlers(bot);
 
-  logger.info('Bot initialized with all handlers');
+  // Register group handlers
+  registerGroupMenuHandlers(bot);
+
+  // Register new member welcome handler for groups
+  bot.on('new_chat_members', handleNewGroupMembers);
+
+  // Setup tier change listener for automatic permission syncing
+  try {
+    setupTierChangeListener(bot);
+  } catch (error) {
+    logger.warn('Could not setup tier change listener:', error.message);
+  }
+
+  logger.info('Bot initialized with all handlers including group menu system');
 }
 
 /**
