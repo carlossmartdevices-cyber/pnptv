@@ -2,8 +2,8 @@
  * Standardized Error Handling for Admin Panel
  */
 
-import logger from '../../../utils/logger.js';
-import { t, getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { t, getUserLanguage } from '../../../../utils/i18n.js';
 
 /**
  * Admin error codes and messages

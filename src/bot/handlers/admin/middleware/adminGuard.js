@@ -3,8 +3,8 @@
  * Ensures only authorized admins can access admin panel
  */
 
-import { getUserLanguage } from '../../../utils/i18n.js';
-import logger from '../../../utils/logger.js';
+import { getUserLanguage } from '../../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
 import { logFailedAction } from '../utils/audit.js';
 import { initializeAdminSession } from '../utils/session.js';
 

@@ -2,8 +2,8 @@
  * Rate Limiting Middleware for Admin Actions
  */
 
-import logger from '../../../utils/logger.js';
-import { getUserLanguage } from '../../../utils/i18n.js';
+import logger from '../../../../utils/logger.js';
+import { getUserLanguage } from '../../../../utils/i18n.js';
 import { logFailedAction } from '../utils/audit.js';
 
 /**

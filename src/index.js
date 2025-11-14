@@ -3,7 +3,7 @@
  * Production-ready bot with subscriptions, live streams, and social features
  */
 
-import 'dotenv-safe/config';
+import 'dotenv/config';
 import { bot, startBot } from './bot/core/bot.js';
 import { startWebServer } from './bot/api/server.js';
 import { initializeFirebase } from './config/firebase.js';
