@@ -1,0 +1,516 @@
+{
+  "timestamp": "2025-11-14T09:17:39.190Z",
+  "duration": "4.68",
+  "summary": {
+    "total": 99,
+    "passed": 90,
+    "warnings": 6,
+    "failed": 1,
+    "critical": 2
+  },
+  "results": {
+    "passed": [
+      {
+        "name": ".env file exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "BOT_TOKEN is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "FIREBASE_PROJECT_ID is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "FIREBASE_PRIVATE_KEY is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "FIREBASE_CLIENT_EMAIL is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "NODE_ENV is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "PORT is set",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "SENTRY_DSN is configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "DAIMO_API_KEY is configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "EPAYCO_PUBLIC_KEY is configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "ZOOM_ACCOUNT_ID is configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "OPENAI_API_KEY is configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "NODE_ENV set to production",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": ".env.example exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "package.json exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.513Z"
+      },
+      {
+        "name": "Node version specified: >=18.0.0",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.514Z"
+      },
+      {
+        "name": "No npm security vulnerabilities",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.088Z"
+      },
+      {
+        "name": "node_modules directory exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.088Z"
+      },
+      {
+        "name": "All dependencies up to date",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "package-lock.json exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "src/index.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "src/bot/core/bot.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "src/config/firebase.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "src/config/redis.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.779Z"
+      },
+      {
+        "name": "src/utils/logger.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "src/bot/core/middleware/errorHandler.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "src/bot/core/middleware/rateLimiter.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "src/services/membershipService.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "src/models/userModel.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "ecosystem.config.cjs exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "pm2-deploy.sh exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "jest.config.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": ".gitignore exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "README.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": ".gitignore includes .env",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": ".gitignore includes node_modules",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": ".gitignore includes logs/",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": ".gitignore includes *.log",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      },
+      {
+        "name": "No console.log statements",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.791Z"
+      },
+      {
+        "name": "ESLint configuration exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.791Z"
+      },
+      {
+        "name": "Prettier configuration exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:36.412Z"
+      },
+      {
+        "name": "Jest configuration exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:36.412Z"
+      },
+      {
+        "name": "test-bot-automated.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:36.417Z"
+      },
+      {
+        "name": "test-bot-features.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:36.417Z"
+      },
+      {
+        "name": "test-onboarding.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:36.417Z"
+      },
+      {
+        "name": "Firebase initialized",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Collection 'users' referenced",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Collection 'payments' referenced",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Collection 'plans' referenced",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Collection 'membership_history' referenced",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Redis configuration exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Firestore schema documented",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Winston logger configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Log rotation configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Multiple log levels configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Error handler has try-catch",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Sentry integration present",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "Logs directory exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.153Z"
+      },
+      {
+        "name": "No hardcoded passwords in code",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.159Z"
+      },
+      {
+        "name": "No hardcoded secrets in code",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.166Z"
+      },
+      {
+        "name": "Rate limiting middleware exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.166Z"
+      },
+      {
+        "name": "Input validation utilities exist",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "PM2 ecosystem config exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "PM2 instances configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Memory limit configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "PM2 log files configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Cron restart configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Deployment script exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Deployment script has shebang",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Dockerfile exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "Docker Compose config exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "GitHub Actions CI/CD configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "README.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "README.md has substantial content",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "docs/FIRESTORE_SCHEMA.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "docs/FIRESTORE_SCHEMA.md has substantial content",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "PM2_DEPLOYMENT.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "TESTING_GUIDE.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "CONTRIBUTING.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "578 JSDoc comments found",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.177Z"
+      },
+      {
+        "name": "Redis caching configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.177Z"
+      },
+      {
+        "name": "Error monitoring (Sentry) configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.177Z"
+      },
+      {
+        "name": "Health check endpoint exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.185Z"
+      },
+      {
+        "name": "Graceful shutdown handlers configured",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.185Z"
+      },
+      {
+        "name": "user/onboardingHandler.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "user/profileHandler.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "payments/subscriptionHandler.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "admin/index.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "group/index.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "membershipService.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      }
+    ],
+    "warnings": [
+      {
+        "name": "5 unit test files found",
+        "details": "Low unit test coverage",
+        "timestamp": "2025-11-14T09:17:36.416Z"
+      },
+      {
+        "name": "FORCE_HTTPS enabled",
+        "details": "Enable HTTPS in production",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": ".dockerignore exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.171Z"
+      },
+      {
+        "name": "API.md exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.172Z"
+      },
+      {
+        "name": "notificationService.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:39.186Z"
+      },
+      {
+        "name": "8 incomplete features (TODOs) in handlers",
+        "details": "Complete before production",
+        "timestamp": "2025-11-14T09:17:39.190Z"
+      }
+    ],
+    "failed": [
+      {
+        "name": "10 TODO comments found",
+        "details": "Review and complete TODOs",
+        "timestamp": "2025-11-14T09:17:35.785Z"
+      }
+    ],
+    "critical": [
+      {
+        "name": "REDIS_URL is missing",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:34.512Z"
+      },
+      {
+        "name": "src/bot/core/middleware/sessionManager.js exists",
+        "details": "",
+        "timestamp": "2025-11-14T09:17:35.780Z"
+      }
+    ]
+  }
+}

@@ -3,7 +3,7 @@
  * Tracks all sensitive admin actions
  */
 
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Log admin action to audit trail

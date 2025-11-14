@@ -1,4 +1,11 @@
 /**
+ * Telegram Webhook Handler
+ */
+router.post('/telegram', (req, res) => {
+	// TODO: Integrate with Telegram bot logic
+	res.status(200).json({ status: 'ok', message: 'Telegram webhook received.' });
+});
+/**
  * Webhook Routes
  */
 

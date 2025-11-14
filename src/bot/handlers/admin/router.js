@@ -10,6 +10,13 @@ import { parseCallback, isValidCallback } from './utils/callbacks.js';
 import { handleAdminError, AdminError } from './utils/errorHandler.js';
 import { logAdminAction } from './utils/audit.js';
 import { cleanupAdminSession, markAdminAction } from './utils/session.js';
+import { showDashboard } from './modules/dashboard.js';
+import { handleUsers } from './modules/users.js';
+import { handleBroadcasts } from './modules/broadcasts.js';
+import { handlePlans } from './modules/plans.js';
+import { handlePayments } from './modules/payments.js';
+import { handleSettings } from './modules/settings.js';
+import { handleTools } from './modules/tools.js';
 
 /**
  * Main admin panel - shows top-level menu
@@ -110,145 +117,19 @@ export async function routeAdminCallback(ctx) {
  * Handle dashboard callbacks
  */
 async function handleDashboard(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement dashboard module
-  const message = lang === 'es'
-    ? '📊 Dashboard - Próximamente\n\nEsta sección mostrará estadísticas en tiempo real.'
-    : '📊 Dashboard - Coming Soon\n\nThis section will show real-time statistics.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle user management callbacks
- */
-async function handleUsers(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement users module
-  const message = lang === 'es'
-    ? '👥 Gestión de Usuarios - Próximamente\n\nEsta sección permitirá gestionar usuarios.'
-    : '👥 User Management - Coming Soon\n\nThis section will allow managing users.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
+  await showDashboard(ctx, action, params);
 }
 
 /**
  * Handle membership callbacks
  */
 async function handleMemberships(ctx, action, params) {
+  // Use existing membership admin handler
+  // This is already implemented in membershipAdminHandler.js
   const lang = getUserLanguage(ctx);
-
-  // TODO: Implement memberships module
   const message = lang === 'es'
-    ? '💳 Membresías - Próximamente\n\nEsta sección permitirá activar membresías.'
-    : '💳 Memberships - Coming Soon\n\nThis section will allow activating memberships.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle broadcast callbacks
- */
-async function handleBroadcasts(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement broadcasts module
-  const message = lang === 'es'
-    ? '📢 Difusiones - Próximamente\n\nEsta sección permitirá enviar mensajes a usuarios.'
-    : '📢 Broadcasts - Coming Soon\n\nThis section will allow sending messages to users.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle plan management callbacks
- */
-async function handlePlans(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement plans module
-  const message = lang === 'es'
-    ? '💰 Planes - Próximamente\n\nEsta sección permitirá gestionar planes.'
-    : '💰 Plans - Coming Soon\n\nThis section will allow managing plans.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle payment callbacks
- */
-async function handlePayments(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement payments module
-  const message = lang === 'es'
-    ? '💳 Pagos - Próximamente\n\nEsta sección mostrará información de pagos.'
-    : '💳 Payments - Coming Soon\n\nThis section will show payment information.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle settings callbacks
- */
-async function handleSettings(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement settings module
-  const message = lang === 'es'
-    ? '⚙️ Configuración - Próximamente\n\nEsta sección permitirá configurar el panel.'
-    : '⚙️ Settings - Coming Soon\n\nThis section will allow configuring the panel.';
-
-  await ctx.editMessageText(message, {
-    parse_mode: 'Markdown',
-    reply_markup: Markup.inlineKeyboard([
-      [Markup.button.callback(lang === 'es' ? '« Atrás' : '« Back', 'admin:back:home')],
-    ]),
-  });
-}
-
-/**
- * Handle tools callbacks
- */
-async function handleTools(ctx, action, params) {
-  const lang = getUserLanguage(ctx);
-
-  // TODO: Implement tools module
-  const message = lang === 'es'
-    ? '🛠️ Herramientas - Próximamente\n\nEsta sección contendrá herramientas administrativas.'
-    : '🛠️ Tools - Coming Soon\n\nThis section will contain administrative tools.';
+    ? '💳 Membresías - Use /admin_membership para gestión completa'
+    : '💳 Memberships - Use /admin_membership for full management';
 
   await ctx.editMessageText(message, {
     parse_mode: 'Markdown',

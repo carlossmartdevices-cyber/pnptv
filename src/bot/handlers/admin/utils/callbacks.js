@@ -3,7 +3,7 @@
  * Standardized callback pattern: admin:section:action:param1:param2...
  */
 
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Valid sections and their allowed actions

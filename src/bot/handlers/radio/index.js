@@ -6,6 +6,7 @@
 import browseHandlers from './browse.js';
 import trendingHandlers from './trending.js';
 import playlistHandlers from './playlists.js';
+import featuresHandlers from './features.js';
 import logger from '../../../utils/logger.js';
 
 /**
@@ -36,10 +37,12 @@ export function registerRadioHandlers(bot) {
   bot.action('radio:playlists', playlistHandlers.showPlaylists);
   bot.action('radio:playlist:create', playlistHandlers.startCreatePlaylist);
 
-  // Handle playlist name input
+  // Handle text input for playlist name or search
   bot.on('text', async (ctx, next) => {
     if (ctx.session?.waitingFor === 'playlist_name') {
       await playlistHandlers.handlePlaylistNameInput(ctx);
+    } else if (ctx.session?.waitingFor === 'radio_search') {
+      await featuresHandlers.handleSearchQuery(ctx);
     } else {
       return next();
     }
@@ -50,10 +53,8 @@ export function registerRadioHandlers(bot) {
   bot.action(/^radio:like:(.+)$/, playlistHandlers.toggleFavorite);
 
   // Filters
-  bot.action('radio:filter:genre', async (ctx) => {
-    // TODO: Implement genre filter selection
-    await ctx.answerCbQuery('Genre filter coming soon!');
-  });
+  bot.action('radio:filter:genre', featuresHandlers.showGenreFilter);
+  bot.action(/^radio:genre:(.+)$/, featuresHandlers.applyGenreFilter);
 
   bot.action('radio:filter:clear', async (ctx) => {
     ctx.session.radioFilters = {};
@@ -62,22 +63,14 @@ export function registerRadioHandlers(bot) {
   });
 
   // Search
-  bot.action('radio:search', async (ctx) => {
-    // TODO: Implement search
-    await ctx.answerCbQuery('Search coming soon!');
-  });
+  bot.action('radio:search', featuresHandlers.showSearch);
 
   // Share track
-  bot.action(/^radio:share:(.+)$/, async (ctx) => {
-    // TODO: Implement share functionality
-    await ctx.answerCbQuery('Share coming soon!');
-  });
+  bot.action(/^radio:share:(.+)$/, featuresHandlers.shareTrack);
 
   // Add to playlist
-  bot.action(/^radio:addpl:(.+)$/, async (ctx) => {
-    // TODO: Implement add to playlist selection
-    await ctx.answerCbQuery('Add to playlist coming soon!');
-  });
+  bot.action(/^radio:addpl:(.+):(.+)$/, featuresHandlers.addTrackToPlaylist);
+  bot.action(/^radio:addpl:(.+)$/, featuresHandlers.showAddToPlaylist);
 
   // Page info (just acknowledge)
   bot.action('radio:page:info', async (ctx) => {
