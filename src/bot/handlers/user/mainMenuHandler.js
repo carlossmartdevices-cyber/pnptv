@@ -35,7 +35,8 @@ export async function showMainMenu(ctx, edit = false) {
     const lang = getUserLanguage(ctx);
     const user = await getUserById(ctx.from.id);
 
-    if (!user || !user.onboardingCompleted) {
+    // Check both onboardingCompleted and onboardingComplete for backwards compatibility
+    if (!user || (!user.onboardingCompleted && !user.onboardingComplete)) {
       return ctx.reply(t('welcome', lang));
     }
 
