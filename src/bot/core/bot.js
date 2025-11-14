@@ -17,8 +17,10 @@ import { registerProfileHandlers } from '../handlers/user/profileHandler.js';
 import { registerSubscriptionHandlers } from '../handlers/payments/subscriptionHandler.js';
 import { registerNearbyUsersHandlers } from '../handlers/user/nearbyUsersHandler.js';
 import { registerLiveStreamHandlers } from '../handlers/media/liveStreamHandler.js';
-import { registerRadioHandlers } from '../handlers/media/radioHandler.js';
+import { registerRadioHandlers as registerOldRadioHandlers } from '../handlers/media/radioHandler.js';
+import { registerRadioHandlers } from '../handlers/radio/index.js'; // New PNPtv! Radio
 import { registerZoomRoomHandlers } from '../handlers/media/zoomRoomHandler.js';
+import { registerEnhancedZoomHandlers } from '../handlers/zoom/index.js'; // New Zoom with full API
 import { registerAdminHandlers } from '../handlers/admin/adminHandler.js';
 import { registerSupportHandlers } from '../handlers/user/supportHandler.js';
 import { registerSettingsHandlers } from '../handlers/user/settingsHandler.js';
@@ -44,8 +46,9 @@ export function initializeBot() {
   registerSubscriptionHandlers(bot);
   registerNearbyUsersHandlers(bot);
   registerLiveStreamHandlers(bot);
-  registerRadioHandlers(bot);
-  registerZoomRoomHandlers(bot);
+  registerRadioHandlers(bot); // New PNPtv! Radio with full features
+  registerZoomRoomHandlers(bot); // Old Daily.co handler (keep for backward compatibility)
+  registerEnhancedZoomHandlers(bot); // New Zoom API integration
   registerAdminHandlers(bot);
   registerSupportHandlers(bot);
   registerSettingsHandlers(bot);
