@@ -66,6 +66,21 @@ export const collections = {
   userGroups: () => getDb().collection('user_groups'),
   groupEngagement: () => getDb().collection('group_engagement'),
   groupSettings: () => getDb().collection('group_settings'),
+
+  // PNPtv! Radio Collections
+  music: () => getDb().collection('music'),
+  playlists: () => getDb().collection('playlists'),
+  favorites: () => getDb().collection('favorites'),
+  trackPlays: () => getDb().collection('track_plays'),
+
+  // Event Management Collections
+  events: () => getDb().collection('events'),
+  eventRsvps: () => getDb().collection('event_rsvps'),
+  eventReminders: () => getDb().collection('event_reminders'),
+
+  // Nearby Members Collections
+  userLocations: () => getDb().collection('user_locations'),
+  nearbySearches: () => getDb().collection('nearby_searches'),
 };
 
 /**
